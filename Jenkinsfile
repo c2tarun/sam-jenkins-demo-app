@@ -14,7 +14,7 @@ pipeline {
                 }
                 withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'us-west-2') {
                     sh 'cd hello-world'
-                    sh 'npm ci'
+                    sh 'npm install'
                     sh 'npm run integ-test'
                 }
 
