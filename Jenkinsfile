@@ -9,14 +9,13 @@ pipeline {
             }
             steps {
                 withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'us-west-2') {
-                  dir ("hello-world") {
-                      sh 'pwd'
-                      sh 'ls'
-                      sh 'npm ci'
-                      sh 'npm run integ-test'
-                  }
+                    sh 'sam build'
+                    sh 'sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET --capabilities CAPABILITY_IAM'
+                    dir ('hello-world') {
+                        sh 'npm ci'
+                        sh 'npm run integ-test'
+                    }
                 }
-
             }
         }
     }

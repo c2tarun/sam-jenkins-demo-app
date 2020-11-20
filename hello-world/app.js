@@ -21,7 +21,7 @@ exports.lambdaHandler = async (event, context) => {
         response = {
             'statusCode': 200,
             'body': JSON.stringify({
-                message: 'Hello from user Tarun',
+                message: 'Hello from user tarun',
                 // location: ret.data.trim()
             })
         }
