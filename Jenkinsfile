@@ -9,8 +9,10 @@ pipeline {
             }
             steps {
                 withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'us-west-2') {
-                    sh 'pwd'
-                    sh 'ls'
+                  dir ("hello-world") {
+                      sh 'pwd'
+                      sh 'ls'
+                  }
                 }
 
             }
