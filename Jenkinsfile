@@ -20,7 +20,7 @@ pipeline {
         }
         stage('prod') {
             environment {
-                STACK_NAME = 'sam-app-beta-prod'
+                STACK_NAME = 'sam-app-prod-stage'
                 S3_BUCKET = 'sam-jenkins-demo-us-east-1'
             }
             steps {
