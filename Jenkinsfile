@@ -12,6 +12,8 @@ pipeline {
                   dir ("hello-world") {
                       sh 'pwd'
                       sh 'ls'
+                      sh 'npm ci'
+                      sh 'npm run integ-test'
                   }
                 }
 
