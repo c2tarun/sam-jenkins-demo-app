@@ -8,6 +8,7 @@ pipeline {
           sh 'sam build'
           stash includes: '.aws-sam', name: 'aws-sam'
         }
+      }
     }
     stage('beta') {
       environment {
