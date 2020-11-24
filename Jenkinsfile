@@ -6,7 +6,7 @@ pipeline {
       steps {
         withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'us-west-2') {
           sh 'sam build'
-          stash includes: '**/.aws-sam', name: 'aws-sam'
+          stash includes: '**/.aws-sam/**/*', name: 'aws-sam'
         }
       }
     }
