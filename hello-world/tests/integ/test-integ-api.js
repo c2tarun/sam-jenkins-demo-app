@@ -11,7 +11,7 @@ const ENDPOINT_KEY = "HelloWorldApi";
 
 describe("GET api test", async () => {
   let apiResponse;
-  
+
   // Fetch API Endpoint from Cloudformation output.
   before(async () => {
     const response = await cloudformation
@@ -19,9 +19,7 @@ describe("GET api test", async () => {
         StackName: STACK_NAME,
       })
       .promise();
-    const endpointOutput = response.Stacks[0].Outputs.find(
-      (x) => x.OutputKey === ENDPOINT_KEY
-    );
+    const endpointOutput = response.Stacks[0].Outputs.find((x) => x.OutputKey === ENDPOINT_KEY);
     const apiEndpoint = endpointOutput.OutputValue;
     apiResponse = await axios.get(apiEndpoint);
   });
@@ -31,6 +29,6 @@ describe("GET api test", async () => {
   });
 
   it("verifies if response contains my usename", async () => {
-    assert.include(apiResponse.data.message, "tarun");
+    assert.include(apiResponse.data.message, "Tarun");
   });
 });
