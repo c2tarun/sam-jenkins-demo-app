@@ -29,6 +29,6 @@ describe("GET api test", async () => {
   });
 
   it("verifies if response contains my usename", async () => {
-    assert.include(apiResponse.data.message, "Tarun");
+    assert.include(apiResponse.data.message, "tarun");
   });
 });
